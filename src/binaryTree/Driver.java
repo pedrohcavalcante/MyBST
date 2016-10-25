@@ -74,6 +74,7 @@ import java.io.*;
 			int parametro = 0;
 			Driver d1 = new Driver();
 			d1.setVisible(true);
+			
 			//ENTRADA
 
 			try{
@@ -143,6 +144,7 @@ import java.io.*;
 
 
 			//INSTRUÃ‡Ã•ES
+			
 			JOptionPane.showMessageDialog(null, "Adicione o arquivo com as instruções");
 			try{
 				chooser.showOpenDialog(parent);
@@ -168,14 +170,16 @@ import java.io.*;
 					try{
 						operacao = linha.substring(0, linha.indexOf(" "));
 					}catch (StringIndexOutOfBoundsException e){
-						System.out.println("erro");
+						System.out.println("erro1");
 					}
 
 					if (operacao == "ENESIMO" || operacao == "POSICAO" || operacao == "REMOVA"){
 						linha = linha.substring(linha.indexOf(" ")+1, linha.length());
 						parametro = Integer.parseInt(linha.substring(0, linha.length()));
 					}
-
+					String t_enesimo_text = "";
+					String t_posicao_text = "";
+					String t_mediana_text = "";  
 					try{
 						switch(operacao){
 					
@@ -183,7 +187,9 @@ import java.io.*;
 							t_imprima.setText(arvore.toString());
 							break;
 						case "ENESIMO":
-							t_enesimo.setText(Integer.toString((arvore.enesimoElemento(parametro))));
+							 t_enesimo_text = (Integer.toString((arvore.enesimoElemento(parametro))));
+							 System.out.println("T_ENESINMO" +  t_enesimo_text);
+							 t_enesimo.setText( t_enesimo_text);
 							break;
 						case "POSICAO":
 							t_posicao.setText(Integer.toString(arvore.posicao(parametro)));
